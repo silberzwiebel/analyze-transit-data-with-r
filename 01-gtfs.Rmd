@@ -4,13 +4,9 @@ The General Transit Feed Specification ( [GTFS](http://gtfs.org/) ) is the de fa
 
 Because it is based on a table data structure, GTFS plays well with R and with [the tidyverse](https://www.tidyverse.org/). 
 
-And because its so prolific (your local transit agency probably publishes it), its a fun way to learn more about R. 
-
-Finally, because the [R Studio](https://www.rstudio.com/) makes distributing your data analysis work fun and painless, R is a great language for a beginner to intermediate programmer thats interested in transit and data to make a contribution.
+And because its so prolific, its a fun way to learn more about R and [R Studio](https://www.rstudio.com/).
 
 ## Reading GTFS Data into R
-
-Once you find a URL for GTFS data there, you can use the `trread` package to read it into R directly from the URL. 
 
 [`trread`](https://github.com/r-transit/trread) is a package for reading data in the General Transit Feed Specification (GTFS) into R as a list of dataframes. It also does some minimal validation of the data and returns that data as part of the list of dataframes. 
 
@@ -66,7 +62,7 @@ If you have the `sf` and `mapview` packages installed, you can also search by lo
 library(sf)
 library(mapview)
 feedlist_sf <- st_as_sf(feedlist, coords=c('loc_lng','loc_lat'))
-mapview(feedlist_sf)
+mapview(feedlist_sf, map.types="Stamen.TonerLite")
 ```
 
 ## How GTFS Tables are Related
