@@ -1,0 +1,61 @@
+# Maps of GTFS in R
+
+## gtsf Package
+
+[`gtsf`](https://github.com/r-transit/gtsf) is an R package for using GTFS data as [simple features](https://en.wikipedia.org/wiki/Simple_Features). Simple features are basically data frames with geospatial data ready for cartography and spatial analysis. 
+
+### Installation
+
+You can install this package from CRAN with:
+
+`install.packages("gtsf")`
+
+## Import using trread
+
+Import transit lines from the NYC Subway using `trread`.
+
+```{r, message=FALSE, warning=FALSE, results='hide'}
+library(trread)
+library(gtsf)
+library(dplyr)
+
+NYC <- import_gtfs("http://web.mta.info/developers/data/nyct/subway/google_transit.zip")
+```
+
+### Get Geometries/Geography
+
+```{r}
+NYC <- gtfs_as_sf(NYC)
+```
+
+This adds two simple features dataframes to the list of GTFS objects:
+-stops_sf 
+-routes_sf
+
+### Make Maps
+
+These can be mapped with various libraries. For example, with the [tmap](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-nutshell.html) package:
+
+```{r}
+library(tmap)
+routes_sf <- NYC$sf_routes
+qtm(routes_sf)
+```
+
+### Export GTFS
+
+#### GeoJSON 
+
+They can also be exported to GeoJSON or Shapefile, for use in other software. For example:
+
+```{r, eval=FALSE}
+library(sf)
+st_write(NYC$sf_routes,"nyc_routes.geojson")
+```
+
+#### Shapefile
+
+```{r, eval=FALSE}
+library(sf)
+st_write(NYC$sf_routes,"nyc_routes.shp")
+```

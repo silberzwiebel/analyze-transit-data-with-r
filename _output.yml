@@ -1,0 +1,19 @@
+bookdown::gitbook:
+  css: style.css
+  includes:
+    in_header: [google-analytics.html]
+  config:
+    toc:
+      before: |
+        <li><a href="./">Analyze Transit Data with R</a></li>
+      after: |
+        <li><a href="http://www.tbuckl.com" target="blank">tbuckl.com</a></li>
+    edit: https://github.com/r-transit/analyze-transit-data-with-r/edit/master/%s
+    download: ["pdf", "epub"]
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default

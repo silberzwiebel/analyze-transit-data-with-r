@@ -1,0 +1,28 @@
+--- 
+title: "Analyze Transit Data with R"
+author: "Tom Buckley"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+biblio-style: apalike
+link-citations: yes
+github-repo: r-transit/transit-data-analysis-with-r
+description: "Methods for working with geographic vector data in R."
+---
+
+# Who this book is for
+
+R users that want to answer simple questions about transit data like:
+
+1) How to find and read transit data into R?
+2) How to calculate the frequency of transit service along transit *routes* or *stops* in R?
+2) How to make maps of transit data in R?
+
+## Background
+
+This book and the packages used in it all take their inspiration from the [ROpenSci](https://github.com/ropensci) [gtfsr](https://github.com/ropensci/gtfsr) package. You may find that package does exactly what you need. 
+
+## Contributing
+
+My intention is to document a workflow for using gtfs data based around small, simple components (packages). If you're interested in contributing or taking ownership of one of these packages, please do not hesitate to get in touch through github at [r-transit](https://github.com/r-transit)
